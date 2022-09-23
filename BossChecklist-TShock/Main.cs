@@ -24,33 +24,43 @@ namespace BossChecklist_TShock
             Commands.ChatCommands.Add(new Command("bcheck.use", bosscheck, "bosses"));
         }
 
+        /// <summary>
+        /// bosscheck，列出 BOSS 挑战记录。
+        ///
+        /// 参考：
+        /// https://terraria.fandom.com/zh/wiki/Boss
+        /// https://terraria.fandom.com/wiki/Bosses
+        /// 
+        /// </summary>
+        /// <param name="args"></param>
         public void bosscheck(CommandArgs args)
         {
             var killed = "([c/FF0000:Killed])";
             var alive = "([c/00FF00:Alive])";
             StringBuilder sb = new StringBuilder();
-            sb.Append("Eye of Cthulu " + (NPC.downedBoss1 ? killed : alive));
-            sb.Append(", King Slime " + (NPC.downedSlimeKing ? killed : alive));
+            
+            sb.Append("克苏鲁之眼 " + (NPC.downedBoss1 ? killed : alive));
+            sb.Append(", 史莱姆王 " + (NPC.downedSlimeKing ? killed : alive));
             if (WorldGen.crimson)
             {
-                sb.Append(", Brain of Cthulu " + (NPC.downedBoss2 ? killed : alive));
+                sb.Append(", 克苏鲁之脑 " + (NPC.downedBoss2 ? killed : alive));
             }
             else
             {
-                sb.Append(", Eater of World " + (NPC.downedBoss2 ? killed : alive));
+                sb.Append(", 世界吞噬怪 " + (NPC.downedBoss2 ? killed : alive));
             }
-            sb.Append(", Skeletron " + (NPC.downedBoss3 ? killed : alive));
-            sb.Append(", Wall of Flesh " + (Main.hardMode ? killed : alive));
-            sb.Append(", Queen Slime " + (NPC.downedQueenSlime ? killed : alive));
-            sb.Append(", The Destroyer " + (NPC.downedMechBoss1 ? killed : alive));
-            sb.Append(", The Twins " + (NPC.downedMechBoss2 ? killed : alive));
-            sb.Append(", Skeletron Prime " + (NPC.downedMechBoss3 ? killed : alive));
-            sb.Append(", Duke of Fishron " + (NPC.downedFishron ? killed : alive));
-            sb.Append(", Golem " + (NPC.downedGolemBoss ? killed : alive));
-            sb.Append(", Plantera " + (NPC.downedPlantBoss ? killed : alive));
-            sb.Append(", Empress of Light " + (NPC.downedEmpressOfLight ? killed : alive));
-            sb.Append(", Lunatic Cultist " + (NPC.downedAncientCultist ? killed : alive));
-            sb.Append(", Moon Lord " + (NPC.downedMoonlord ? killed : alive));
+            sb.Append(", 骷髅王 " + (NPC.downedBoss3 ? killed : alive));
+            sb.Append(", 血肉墙 " + (Main.hardMode ? killed : alive));
+            sb.Append(", 史莱姆皇后 " + (NPC.downedQueenSlime ? killed : alive));
+            sb.Append(", 毁灭者 " + (NPC.downedMechBoss1 ? killed : alive));
+            sb.Append(", 双子魔眼 " + (NPC.downedMechBoss2 ? killed : alive));
+            sb.Append(", 机械骷髅王 " + (NPC.downedMechBoss3 ? killed : alive));
+            sb.Append(", 猪龙鱼公爵 " + (NPC.downedFishron ? killed : alive));
+            sb.Append(", 石巨人 " + (NPC.downedGolemBoss ? killed : alive));
+            sb.Append(", 世纪之花 " + (NPC.downedPlantBoss ? killed : alive));
+            sb.Append(", 光之女皇 " + (NPC.downedEmpressOfLight ? killed : alive));
+            sb.Append(", 拜月教邪教徒 " + (NPC.downedAncientCultist ? killed : alive));
+            sb.Append(", 月亮领主 " + (NPC.downedMoonlord ? killed : alive));
             args.Player.SendInfoMessage(sb.ToString());
         }
 
